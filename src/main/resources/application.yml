@@ -1,0 +1,47 @@
+server:
+  port: 12000
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://server:3306/springbootdemo?useUnicode=true&acharacterEncoding=utf-8&auseSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+  data:
+    redis:
+      host: server
+      username:
+      password: 123456
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    prometheus:
+      enabled: true
+
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.example.springdemo.pojo.entity
+  configuration:
+    map-underscore-to-camel-case: true
+  base-package: com.example.springdemo.mapper
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*/*.xml
+  configuration:
+    cache-enabled: false # 启用缓存
+
+logging:
+  level:
+    example: debug
+    org.springframework.data.redis: debug
+#    com: debug
+#    org: debug
+
+

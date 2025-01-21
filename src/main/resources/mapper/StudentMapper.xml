@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springdemo.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.example.springdemo.pojo.entity.StudentEntity">
+    <!--@mbg.generated-->
+    <!--@Table student-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="age" jdbcType="TINYINT" property="age" />
+    <result column="sex" jdbcType="TINYINT" property="sex" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, username, age, sex, school
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update student
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.username,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="age = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.age,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="sex = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.sex,jdbcType=TINYINT}
+        </foreach>
+      </trim>
+      <trim prefix="school = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=BIGINT} then #{item.school,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update student
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.username != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.username,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="age = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.age != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.age,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="sex = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.sex != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.sex,jdbcType=TINYINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="school = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.school != null">
+            when id = #{item.id,jdbcType=BIGINT} then #{item.school,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into student
+    (id, username, age, sex, school)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id,jdbcType=BIGINT}, #{item.username,jdbcType=VARCHAR}, #{item.age,jdbcType=TINYINT}, 
+        #{item.sex,jdbcType=TINYINT}, #{item.school,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" parameterType="com.example.springdemo.pojo.entity.StudentEntity">
+    <!--@mbg.generated-->
+    insert into student
+    (id, username, age, sex, school)
+    values
+    (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{age,jdbcType=TINYINT}, #{sex,jdbcType=TINYINT}, 
+      #{school,jdbcType=VARCHAR})
+    on duplicate key update 
+    id = #{id,jdbcType=BIGINT}, 
+    username = #{username,jdbcType=VARCHAR}, 
+    age = #{age,jdbcType=TINYINT}, 
+    sex = #{sex,jdbcType=TINYINT}, 
+    school = #{school,jdbcType=VARCHAR}
+  </insert>
+  <insert id="insertOrUpdateSelective" parameterType="com.example.springdemo.pojo.entity.StudentEntity">
+    <!--@mbg.generated-->
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=TINYINT},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=TINYINT},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -14,19 +14,27 @@
  * limitations under the License.
  */
 
-package com.example.springdemo.demos.web;
+package com.example.springdemo.controller;
 
+import com.example.springdemo.pojo.dto.UserDTO;
+import jakarta.annotation.Resource;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
 @Controller
 public class BasicController {
+
+    @Resource
+    private JdbcTemplate jdbcTemplate;
+
 
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/hello")
@@ -38,17 +46,17 @@ public class BasicController {
     // http://127.0.0.1:8080/user
     @RequestMapping("/user")
     @ResponseBody
-    public User user() {
-        User user = new User();
-        user.setName("theonefx");
-        user.setAge(666);
-        return user;
+    public UserDTO user() {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setName("theonefx");
+        userDTO.setAge(666);
+        return userDTO;
     }
 
     // http://127.0.0.1:8080/save_user?name=newName&age=11
     @RequestMapping("/save_user")
     @ResponseBody
-    public String saveUser(User u) {
+    public String saveUser(UserDTO u) {
         return "user will save: name=" + u.getName() + ", age=" + u.getAge();
     }
 
@@ -60,8 +68,8 @@ public class BasicController {
 
     @ModelAttribute
     public void parseUser(@RequestParam(name = "name", defaultValue = "unknown user") String name
-            , @RequestParam(name = "age", defaultValue = "12") Integer age, User user) {
-        user.setName("zhangsan");
-        user.setAge(18);
+            , @RequestParam(name = "age", defaultValue = "12") Integer age, UserDTO userDTO) {
+        userDTO.setName("zhangsan");
+        userDTO.setAge(18);
     }
 }
