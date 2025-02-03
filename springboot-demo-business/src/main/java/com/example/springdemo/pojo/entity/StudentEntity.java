@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @author WangZhen
+ *
  * @Date 2024/12/18 23:40
  */
 @ApiModel(description = "student")

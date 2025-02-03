@@ -3,6 +3,7 @@ package com.example.springdemo;
 import cn.hutool.json.JSONUtil;
 import com.example.springdemo.mapper.StudentMapper;
 import com.example.springdemo.pojo.entity.StudentEntity;
+import com.example.springdemo.service.QuotaService;
 import com.example.springdemo.service.StudentService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -37,6 +38,9 @@ class SpringDemoApplicationTests {
 //    @Autowired
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private QuotaService quotaService;
 
     @MockBean
     private StudentMapper studentMapper;
@@ -76,7 +80,7 @@ class SpringDemoApplicationTests {
     @Test
     public void test3() throws Exception {
 //        Object string = studentService.addQuota("act001", System.currentTimeMillis());
-        Object string = studentService.addQuota3("act001", System.currentTimeMillis());
+        Object string = quotaService.addQuota3("act001", System.currentTimeMillis());
         System.out.println("string = " + JSONUtil.toJsonStr(string));
         System.out.println("string type = " + string.getClass());
     }

@@ -8,7 +8,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * @author WangZhen
+ *
  * @Date 2024/12/18 23:40
  */
 public interface StudentMapper extends BaseMapper<StudentEntity> {

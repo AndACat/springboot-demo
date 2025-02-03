@@ -16,14 +16,12 @@
 
 package com.example.springdemo.controller;
 
+import cn.hutool.core.date.DateUtil;
 import com.example.springdemo.pojo.dto.UserDTO;
 import jakarta.annotation.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -34,6 +32,12 @@ public class BasicController {
 
     @Resource
     private JdbcTemplate jdbcTemplate;
+
+    @RequestMapping({"", "/"})
+    @ResponseBody
+    public String index(){
+        return "系统当前时间为: " + DateUtil.now();
+    }
 
 
     // http://127.0.0.1:8080/hello?name=lisi
