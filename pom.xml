@@ -11,6 +11,8 @@
     <modules>
         <module>springboot-demo-starter</module>
         <module>springboot-demo-business</module>
+        <module>springboot-demo-api</module>
+        <module>springboot-demo-common</module>
     </modules>
     <!--打包为jar,项目的parent必须是下面这个-->
     <parent>

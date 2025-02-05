@@ -13,6 +13,8 @@ spring:
       host: server
       username:
       password: 123456
+  config:
+    import: classpath:application-program-data.yml
 
 management:
   endpoints:
