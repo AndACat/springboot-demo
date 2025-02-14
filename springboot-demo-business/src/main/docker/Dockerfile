@@ -1,4 +1,4 @@
-FROM registry.cn-shanghai.aliyuncs.com/java-docker-hub-prod/eclipse-temurin:21-jdk
+FROM registry.cn-shanghai.aliyuncs.com/wz-hub/eclipse-temurin:21-jdk
 
 COPY springboot-demo-business/target/springboot-demo-business-0.0.1-SNAPSHOT.jar /app/app.jar
 
