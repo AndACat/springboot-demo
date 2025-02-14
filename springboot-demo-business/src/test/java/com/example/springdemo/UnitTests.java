@@ -1,5 +1,6 @@
 package com.example.springdemo;
 
+import cn.hutool.core.util.XmlUtil;
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
@@ -75,6 +76,18 @@ class UnitTests {
 //        assertEquals(1, studentEntityList.size());
 //        assertEquals("刘", studentEntityList.get(0).getUsername());
 
+    }
+
+    @Test
+    public void convert(){
+        StudentEntity studentEntity = new StudentEntity();
+        studentEntity.setId(2L);
+        studentEntity.setUsername("张三");
+        studentEntity.setAge((byte) 18);
+        studentEntity.setSex((byte) 1);
+        studentEntity.setSchool("光明中学");
+
+        System.out.println(XmlUtil.beanToXml(studentEntity, "http:.."));
     }
 
 }
