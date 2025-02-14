@@ -1,6 +1,7 @@
 FROM registry.cn-shanghai.aliyuncs.com/wz-hub/eclipse-temurin:21-jdk
 
-COPY springboot-demo-business-0.0.1-SNAPSHOT.jar /app/app.jar
+#COPY springboot-demo-business-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY COPY . /app/
 
 LABEL author="wangzhen"
 # 设置时区
