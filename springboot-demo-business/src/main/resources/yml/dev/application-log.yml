@@ -1,0 +1,6 @@
+logging:
+  level:
+    example: debug
+    org.springframework.data.redis: debug
+#    com: debug
+#    org: debug

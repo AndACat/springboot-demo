@@ -1,9 +1,7 @@
 package com.example.springdemo.config;
 
-import com.example.service.CatActionService;
 import com.example.springdemo.interceptor.UserIdHandlerInterceptor;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 

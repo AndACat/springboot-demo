@@ -1,0 +1,9 @@
+spring:
+  data:
+    redis:
+      host: server
+      username:
+      password: 123456
+  config:
+    activate:
+      on-profile: serve

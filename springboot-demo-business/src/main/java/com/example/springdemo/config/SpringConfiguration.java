@@ -1,18 +1,21 @@
 package com.example.springdemo.config;
 
-import cn.hutool.core.util.XmlUtil;
+import com.example.springdemo.utils.ApplicationContextUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Arrays;
 
 /**
  *
  */
 @Configuration
 @Slf4j
-public class MyConfiguration {
+public class SpringConfiguration {
     @Bean
     public ChatClient chatClient(ChatClient.Builder builder) {
         return builder.defaultSystem("""
@@ -26,6 +29,14 @@ public class MyConfiguration {
         return args -> {
 //            String response = chatClient.prompt("请给我说一个大笑话 哈哈哈").call().content();
 //            log.info("说出的笑话内容: {}", response);
+        };
+    }
+
+    @Bean
+    public ApplicationContextAware contextAware(){
+        return context -> {
+            ApplicationContextUtil.APPLICATION_CONTEXT = context;
+            ApplicationContextUtil.PROFILE_LIST = Arrays.stream(context.getEnvironment().getActiveProfiles()).toList();
         };
     }
 }

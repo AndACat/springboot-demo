@@ -1,0 +1,14 @@
+server:
+  port: 12000
+spring:
+  config:
+    import:
+    - classpath:yml/serve/application-db.yml
+    - classpath:yml/serve/application-redis.yml
+    - classpath:yml/serve/application-log.yml
+    - classpath:yml/serve/application-prometheus.yml
+    - classpath:yml/serve/application-program-data.yml
+    - classpath:yml/serve/application-ai.yml
+  main:
+    lazy-initialization: true
+    log-startup-info: false

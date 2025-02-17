@@ -1,0 +1,7 @@
+spring:
+  ai:
+    openai:
+      chat:
+        enabled: true
+      api-key: sk-zk26a0bc3bb97f0e90217d15b4cd7d9a02b67a84e59c444f
+      base-url: https://api.zhizengzeng.com/v1

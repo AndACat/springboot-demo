@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>springboot-demo-business</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -172,11 +173,36 @@
             <version>1.2.0</version>
         </dependency>
 
+        <!--支持web socket-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
 
+        <!--支持h2内存数据库-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 
+        <!--本地redis-->
+        <dependency>
+            <groupId>it.ozimov</groupId>
+            <artifactId>embedded-redis</artifactId>
+            <version>0.7.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
-
-
 
     <build>
         <plugins>
@@ -214,6 +240,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--操作打包源代码为docker镜像，并可直接推送镜像到docker容器中-->
             <!--<plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -258,7 +285,7 @@
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
-                    <include>**/*.xml</include>
+                    <include>**/*</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>
@@ -270,6 +297,17 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
+        <!--定义打包为jar包时候的名称-->
+        <finalName>${artifactId}-${version}</finalName>
     </build>
 
 </project>

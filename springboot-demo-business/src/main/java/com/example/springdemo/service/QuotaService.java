@@ -1,5 +1,6 @@
 package com.example.springdemo.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.util.Map;
  * @Date 2025/1/21 21:55
  */
 @Service
+@AllArgsConstructor
 public class QuotaService {
     private StringRedisTemplate stringRedisTemplate;
 
