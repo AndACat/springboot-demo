@@ -1,25 +1,41 @@
 package com.example.springdemo.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.messaging.simp.config.MessageBrokerRegistry;
-import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
-import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
-import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+import org.springframework.web.socket.WebSocketHandler;
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
+import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
+import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
 
 @Configuration
-@EnableWebSocketMessageBroker
-public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+@EnableWebSocket
+public class WebSocketConfig implements WebSocketConfigurer {
+    @Autowired
+    @Qualifier("chatSocketHandler")
+    private WebSocketHandler chatSocketHandler;
 
-    // 配置 WebSocket 端点
+    @Autowired
+    @Qualifier("aiSocketHandler")
+    private WebSocketHandler aiSocketHandler;
+
     @Override
-    public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws").setAllowedOrigins("*").withSockJS();  // 设置WebSocket的端点
+    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+
+        registry
+                .addHandler(chatSocketHandler, "/ws/chat") // 使用apifox进行测试连接的地址为: ws://localhost:12000/ws/chat
+                .addHandler(aiSocketHandler, "/ws/ai") // 使用apifox进行测试连接的地址为: ws://localhost:12000/ws/ai
+                .setAllowedOrigins("*");
     }
 
-    // 配置消息代理
-    @Override
-    public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.enableSimpleBroker("/topic");  // 订阅的前缀
-        registry.setApplicationDestinationPrefixes("/app");  // 客户端发送消息的前缀
+    @Bean
+    public ServletServerContainerFactoryBean createWebSocketContainer() {
+        ServletServerContainerFactoryBean container = new ServletServerContainerFactoryBean();
+        // 消息缓冲区大小的大小
+        container.setMaxTextMessageBufferSize(8192);
+        container.setMaxBinaryMessageBufferSize(8192);
+        return container;
     }
 }
