@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.example</groupId>
+        <groupId>com.javatoai</groupId>
         <artifactId>springboot-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -22,12 +22,7 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>springboot-demo-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.example</groupId>
+            <groupId>com.javatoai</groupId>
             <artifactId>springboot-demo-starter</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
@@ -51,26 +46,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!--里面包含了jdbc的快速启动，用于自动装配DataSource, 并增加Transaction功能, 提供了JdbcTemplate功能-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-
-        <!--连接mysql的jdbc驱动-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.33</version>
-        </dependency>
-
-        <!--lombok工具-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <!--            <scope>provided</scope>-->
-        </dependency>
-
         <!--单元测试-->
         <dependency>
             <groupId>junit</groupId>
@@ -85,55 +60,11 @@
             <version>2.5</version>
         </dependency>
 
-        <!--mybatis依赖-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>3.0.3</version>
-        </dependency>
-
-        <!-- MyBatis-Plus 依赖 -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.5</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-extension</artifactId>
-            <version>3.5.5</version>
-        </dependency>
-
         <!-- Spring Boot Configuration Processor (用于配置提示) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
-        </dependency>
-
-        <!-- Springfox Swagger 2 相关依赖 -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.9.2</version> <!-- 确保版本为最新支持 -->
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-
-        <!--hutool工具包-->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.8.25</version>
-        </dependency>
-
-        <!--redis依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
         <!-- Spring Boot Actuator：提供健康检查和度量端点 -->
@@ -155,24 +86,6 @@
             <version>2.3</version>  <!-- 确保是 2.x 版本 -->
         </dependency>
 
-        <!--spring ai for open ai api-->
-        <dependency>
-            <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
-        </dependency>
-
-        <!--spring ai-->
-        <dependency>
-            <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.activation</groupId>
-            <artifactId>javax.activation-api</artifactId>
-            <version>1.2.0</version>
-        </dependency>
-
         <!--支持web socket-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -186,21 +99,50 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!--本地redis-->
         <dependency>
-            <groupId>it.ozimov</groupId>
-            <artifactId>embedded-redis</artifactId>
-            <version>0.7.3</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-simple</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>com.javatoai</groupId>
+            <artifactId>springboot-demo-common-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.javatoai</groupId>
+            <artifactId>springboot-demo-common-datasource</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.javatoai</groupId>
+            <artifactId>springboot-demo-common-redis</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.javatoai</groupId>
+            <artifactId>springboot-demo-common-ai</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.javatoai</groupId>
+            <artifactId>springboot-demo-common-enum</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.javatoai</groupId>
+            <artifactId>springboot-demo-common-log</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.javatoai</groupId>
+            <artifactId>springboot-demo-common-util</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+<!--        <dependency>
+            <groupId>com.javatoai</groupId>
+            <artifactId>springboot-demo-common-nacos</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.javatoai</groupId>
+            <artifactId>springboot-demo-common-swagger</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -307,7 +249,7 @@
             </testResource>
         </testResources>
         <!--定义打包为jar包时候的名称-->
-        <finalName>${artifactId}-${version}</finalName>
+        <finalName>${project.artifactId}-${project.version}</finalName>
     </build>
 
 </project>

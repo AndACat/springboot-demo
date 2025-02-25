@@ -9,6 +9,7 @@ spring:
     - classpath:yml/dev/application-prometheus.yml
     - classpath:yml/dev/application-program-data.yml
     - classpath:yml/dev/application-ai.yml
+    - classpath:yml/dev/application-nacos.yml
   main:
     # 关闭懒加载
     lazy-initialization: false

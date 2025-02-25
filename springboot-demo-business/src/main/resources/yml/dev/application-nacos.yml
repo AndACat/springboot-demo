@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: server:8848
+        namespace:
+      config:
+        server-addr: server:8848
+        namespace:
+        prefix: order
+        file-extension: yml

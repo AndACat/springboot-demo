@@ -14,10 +14,10 @@ spring:
       path: /h2-console
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
-  type-aliases-package: com.example.springdemo.pojo.entity
+  type-aliases-package: com.javatoai.springdemo.pojo.entity
   configuration:
     map-underscore-to-camel-case: true
-  base-package: com.example.springdemo.mapper
+  base-package: com.javatoai.springdemo.mapper
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*/*.xml

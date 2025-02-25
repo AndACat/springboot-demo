@@ -4,10 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.example</groupId>
+        <groupId>com.javatoai</groupId>
         <artifactId>springboot-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+    <packaging>pom</packaging>
+    <modules>
+        <module>springboot-demo-common-ai</module>
+        <module>springboot-demo-common-enum</module>
+        <module>springboot-demo-common-log</module>
+        <module>springboot-demo-common-util</module>
+        <module>springboot-demo-common-core</module>
+        <module>springboot-demo-common-datasource</module>
+        <module>springboot-demo-common-redis</module>
+        <module>springboot-demo-common-nacos</module>
+        <module>springboot-demo-common-swagger</module>
+    </modules>
 
     <artifactId>springboot-demo-common</artifactId>
 

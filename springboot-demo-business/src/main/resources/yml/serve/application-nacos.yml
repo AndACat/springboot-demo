@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.100.200:8848
+        namespace: public
+      config:
+        server-addr: 192.168.100.200:8848
+        namespace: public
+        file-extension: yml
+        import-check:
+          enabled: false
+        username:
+      username:
+      password:
+      server-addr: 192.168.100.200

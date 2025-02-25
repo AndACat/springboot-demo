@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.example</groupId>
+        <groupId>com.javatoai</groupId>
         <artifactId>springboot-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -23,13 +23,18 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.example</groupId>
+            <groupId>com.javatoai</groupId>
             <artifactId>springboot-demo-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>springboot-demo-common</artifactId>
+            <groupId>com.javatoai</groupId>
+            <artifactId>springboot-demo-common-log</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.javatoai</groupId>
+            <artifactId>springboot-demo-common-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
