@@ -19,6 +19,7 @@
         <module>springboot-demo-common-redis</module>
         <module>springboot-demo-common-nacos</module>
         <module>springboot-demo-common-swagger</module>
+        <module>springboot-demo-common-clickhouse</module>
     </modules>
 
     <artifactId>springboot-demo-common</artifactId>

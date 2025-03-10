@@ -13,6 +13,7 @@
         <module>springboot-demo-business</module>
         <module>springboot-demo-api</module>
         <module>springboot-demo-common</module>
+        <module>springboot-demo-clickhouse</module>
     </modules>
     <!--打包为jar,项目的parent必须是下面这个-->
     <parent>
@@ -68,4 +69,15 @@
 <!--            </releases>-->
 <!--        </repository>-->
 <!--    </repositories>-->
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>

@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: springboot-demo-clickhouse
+  datasource:
+    clickhouse:
+      url: jdbc:ch://server:8123/mydatabase
+      username: admin
+      password: admin123
+server:
+  port: 12010
+
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.javatoai.clickhouse.pojo.entity
+  configuration:
+    map-underscore-to-camel-case: true
+  base-package: com.javatoai.clickhouse.mapper
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*/*.xml
+  configuration:
+    cache-enabled: false # 启用缓存
+
+

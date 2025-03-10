@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.javatoai.springdemo.mapper.StudentMapper">
-  <resultMap id="BaseResultMap" type="com.javatoai.springdemo.pojo.entity.StudentEntity">
+<mapper namespace="com.javatoai.business.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.javatoai.business.pojo.entity.StudentEntity">
     <!--@mbg.generated-->
     <!--@Table student-->
     <id column="id" jdbcType="BIGINT" property="id" />
@@ -92,7 +92,7 @@
         #{item.sex,jdbcType=TINYINT}, #{item.school,jdbcType=VARCHAR})
     </foreach>
   </insert>
-  <insert id="insertOrUpdate" parameterType="com.javatoai.springdemo.pojo.entity.StudentEntity">
+  <insert id="insertOrUpdate" parameterType="com.javatoai.business.pojo.entity.StudentEntity">
     <!--@mbg.generated-->
     insert into student
     (id, username, age, sex, school)
@@ -106,7 +106,7 @@
     sex = #{sex,jdbcType=TINYINT},
     school = #{school,jdbcType=VARCHAR}
   </insert>
-  <insert id="insertOrUpdateSelective" parameterType="com.javatoai.springdemo.pojo.entity.StudentEntity">
+  <insert id="insertOrUpdateSelective" parameterType="com.javatoai.business.pojo.entity.StudentEntity">
     <!--@mbg.generated-->
     insert into student
     <trim prefix="(" suffix=")" suffixOverrides=",">
