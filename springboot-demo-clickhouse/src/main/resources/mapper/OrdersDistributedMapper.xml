@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javatoai.clickhouse.mapper.OrdersDistributedMapper">
+  <resultMap id="BaseResultMap" type="com.javatoai.clickhouse.pojo.entity.OrdersDistributedEntity">
+    <!--@mbg.generated-->
+    <!--@Table orders_distributed-->
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
+    <result column="currency" jdbcType="OTHER" property="currency" />
+    <result column="order_status" jdbcType="OTHER" property="orderStatus" />
+    <result column="payment_method" jdbcType="OTHER" property="paymentMethod" />
+    <result column="shipping_address" jdbcType="OTHER" property="shippingAddress" />
+    <result column="shipping_city" jdbcType="OTHER" property="shippingCity" />
+    <result column="shipping_country" jdbcType="OTHER" property="shippingCountry" />
+    <result column="contact_phone" jdbcType="OTHER" property="contactPhone" />
+    <result column="contact_email" jdbcType="OTHER" property="contactEmail" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    order_id, user_id, product_id, quantity, price, total_amount, currency, order_status,
+    payment_method, shipping_address, shipping_city, shipping_country, contact_phone,
+    contact_email, created_at, updated_at
+  </sql>
+</mapper>
